@@ -2,8 +2,30 @@
 <html>
   <head>
     <title>Movie Search Results</title>
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
   </head>
   <body>
-    Replace me with a list of movies
+    <form action="/welcome">
+      <input type="submit" value="HOME"><br>
+    </form>    
+
+    <p>Click on a movie to see details</p><br>
+
+<!--     test *** Not Working.  will be ?i= *** -->      
+      <% movieList.forEach(function (movie) { %>
+      <a href="http://www.omdbapi.com/?s=<% movie.Title %>_method=put"></a>
+      <% }); %>
+
+<!--     test *** Button appears, but can't make it link *** -->      
+    <form method="post" action="/detail">
+
+    	<% movieList.forEach(function (movie) { %>
+      <a href="http://www.omdbapi.com/"><% movie.Title %></a>
+    	<input type="submit" value="<%= movie.Title %>"><br>
+    	<% }); %>
+
+    </form>
+
   </body>
 </html>
+
